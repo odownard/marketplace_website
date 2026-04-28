@@ -1,0 +1,1 @@
+Set-ExecutionPolicy Unrestricted -Scope Process; .venv/Scripts/activate; cd marketplace; py manage.py runserver
