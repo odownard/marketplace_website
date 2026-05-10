@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+    <nav class="container">
+        <a href="/" style="text-align: left;" id="home"><h1>ProductOverdose</h1></a>
+        <h1 id="searchbar">Searchbar</h1>
+        <a href="">Categories</a>
+        <a href="">Saved Listings</a>
+        <a href="">Make a Listing</a>
+        <a href="">My Account</a>
+    </nav>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

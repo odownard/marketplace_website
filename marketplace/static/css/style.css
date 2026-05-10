@@ -3,11 +3,31 @@
     padding: 0;
 }
 
-body {
-    display: grid;
-    color: orange;
+.container {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
 }
 
-h1, p {
+nav {
+    display: grid;
+    grid-template-columns: 3fr 6fr 1fr 1fr 1fr 1fr;
+    /* width: 80%; */
+    align-content: center;
+    height: 100px;
+    background-color: orange;
+    color: black;
+    text-align: right;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#searchbar {
     text-align: center;
+}
+
+#home {
+    text-decoration: none;
+    color: black;
 }
