@@ -7,5 +7,5 @@
 {% block content %}
     <h1>Home</h1>
     <p>Check out my <a href="/about">About</a> page</p>
-    <p>Check out my <a href="/listings">Listings</a> page</p>
+    <p>Check out my <a href="{% url 'listings:list' %}">Listings</a> page</p>
 {% endblock  %}

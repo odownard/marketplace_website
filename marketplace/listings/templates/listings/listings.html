@@ -10,7 +10,11 @@
     
     {% for listing in listings %}
         <article class="listing">
-            <h2>{{ listing.title }}</h2>
+            <h2>
+                <a href="{% url 'listings:page' slug=listing.slug %}">
+                    {{ listing.title }}
+                </a>
+            </h2>
             <p>{{ listing.date }}</p>
             <p>{{ listing.body }}</p>
         </article>
