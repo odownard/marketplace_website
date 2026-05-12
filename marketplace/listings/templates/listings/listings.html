@@ -1,9 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Home
+    Listings
 {% endblock %}
 
 {% block content %}
+    <section>
     <h1>Listings</h1>
+    
+    {% for listing in listings %}
+        <article class="listing">
+            <h2>{{ listing.title }}</h2>
+            <p>{{ listing.date }}</p>
+            <p>{{ listing.body }}</p>
+        </article>
+    {% endfor %}
+</section>
 {% endblock %}
