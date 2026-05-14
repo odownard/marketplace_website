@@ -31,3 +31,9 @@ nav {
     text-decoration: none;
     color: black;
 }
+
+.banner {
+    display: block;
+    width: 100%;
+    /* max-width: 800px; */
+}
