@@ -18,7 +18,9 @@
         <a href="">Categories</a>
         <a href="">Saved Listings</a>
         <a href="">Make a Listing</a>
-        <a href="">My Account</a>
+        <a href="{% url 'users:register' %}">
+            <span aria-label="My Account" title="My Account">My Account</span>
+        </a>
     </nav>
     <main class="container">
         {% block content %}
