@@ -17,10 +17,13 @@
         <h1 id="searchbar">Searchbar</h1>
         <a href="">Categories</a>
         <a href="">Saved Listings</a>
-        <a href="">Make a Listing</a>
+        <a href="{% url 'listings:new-listing' %}">
+            <span aria-label="New Listing" title="New Listing">New Listing</span>
+        </a>
         <a href="{% url 'users:register' %}">
             <span aria-label="My Account" title="User Registration">User Registration</span>
         </a>
+        
         <a href="{% url 'users:login' %}">
             <span aria-label="User Login" title="User Login">User Login</span>
         </a>
