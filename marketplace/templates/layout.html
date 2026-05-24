@@ -22,19 +22,20 @@
                 <span aria-label="New Listing" title="New Listing">New Listing</span>
             </a>
             {% if user.is_authenticated %}
-
+                <a href="/about">My Account</a>
             {% else %}
-                <a href="{% url 'users:register' %}">
-                    <span aria-label="My Account" title="User Registration">User Registration</span>
-                </a>
-                <a href="{% url 'users:login' %}">
-                    <span aria-label="User Login" title="User Login">User Login</span>
-                </a>
+                <div class="dropdown">
+                    <button class="dropbtn">My Account</button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'users:register' %}">
+                            <span aria-label="My Account" title="User Registration">User Registration</span>
+                        </a>
+                        <a href="{% url 'users:login' %}">
+                            <span aria-label="User Login" title="User Login">User Login</span>
+                        </a>
+                    </div>
+                </div>
             {% endif %}
-            <form class="logout" action="{% url 'users:logout' %}" method="post">
-                {% csrf_token %}
-                <button class="logout-button" aria-label="User Logout" title="User Logout">Logout</button>
-            </form>
         </nav>
     </div>
     <main class="container">

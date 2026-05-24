@@ -5,6 +5,9 @@
 {% endblock  %}
 
 {% block content %}
-<h1>About</h1>
-<p>Check out my <a href="/">Home</a> page</p>
+    <h1>My Account</h1>
+    <form class="logout" action="{% url 'users:logout' %}" method="post">
+        {% csrf_token %}
+        <button class="logout-button" aria-label="User Logout" title="User Logout">Logout</button>
+    </form>
 {% endblock  %}
