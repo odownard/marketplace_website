@@ -10,10 +10,16 @@
     padding-block: 1rem;
 }
 
+.outer-nav {
+    width: 100%;
+    background-color: orange; 
+}
+
 nav {
     display: grid;
     grid-template-columns: 3fr 6fr 1fr 1fr 1fr 1fr;
-    /* width: 80%; */
+    width: 100%;
+    max-width: 1200px;
     align-content: center;
     height: 100px;
     background-color: orange;
