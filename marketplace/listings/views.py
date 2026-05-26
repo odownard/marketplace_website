@@ -18,7 +18,9 @@ def listing_new(request):
         form = forms.CreateListing(request.POST, request.FILES)
         if form.is_valid():
             # Save with user
-            form.save()
+            newpost = form.save(commit=False)
+            newpost.author = request.user
+            newpost.save()
             return redirect('listings:list')
     else: 
         form = forms.CreateListing()
