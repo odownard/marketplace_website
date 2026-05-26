@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Listing
 from django.contrib.auth.decorators import login_required
+from . import forms
 
 # Create your views here.
 def listings_list(request):
@@ -13,4 +14,12 @@ def listing_page(request, slug):
 
 @login_required(login_url="/users/login/")
 def listing_new(request):
-    return render(request, 'listings/listing_new.html')
+    if request.method == 'POST':
+        form = forms.CreateListing(request.POST, request.FILES)
+        if form.is_valid():
+            # Save with user
+            form.save()
+            return redirect('listings:list')
+    else: 
+        form = forms.CreateListing()
+    return render(request, 'listings/listing_new.html', { 'form': form })
