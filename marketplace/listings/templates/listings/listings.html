@@ -19,5 +19,11 @@
             <p>{{ listing.body }}</p>
         </article>
     {% endfor %}
+    {% if results %}
+        <h1>Results for {{ query }}:</h1>
+        {% for result in results %}
+            <li>{{ result.title }}</li>
+        {% endfor %}
+    {% endif %}
 </section>
 {% endblock %}

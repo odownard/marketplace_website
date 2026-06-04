@@ -25,3 +25,10 @@ def listing_new(request):
     else: 
         form = forms.CreateListing()
     return render(request, 'listings/listing_new.html', { 'form': form })
+
+def search_results(request):
+    query = request.GET.get('search')
+    results = Listing.objects.all()
+    if query:
+        results = results.filter(name__icontains=query)
+    return render(request, 'listings/listings.html', {'results': results, 'query': query})

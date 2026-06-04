@@ -15,7 +15,12 @@
     <div class="outer-nav">
         <nav class="container">
             <a href="/" style="text-align: left;" id="home"><h1>ProductOverdose</h1></a>
-            <h1 id="searchbar">Searchbar</h1>
+            <div id="searchbar">
+                <form action="{% url 'listings:list' %}">
+                    <input method="GET" type="text" name="search" placeholder="Search..." value="{{ request.GET.search }}">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
             <a href="">Categories</a>
             <a href="">Saved Listings</a>
             <a href="{% url 'listings:new-listing' %}">

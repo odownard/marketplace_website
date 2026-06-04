@@ -7,4 +7,17 @@
 {% block content %}
     <h1>Home</h1>
     <p>Check out my <a href="{% url 'listings:list' %}">Listings</a> page</p>
+    <section id="categories-homepage">
+        <h1>Categories</h1>
+        <div id="buttons-category">
+            <button class="category-button">Sports</button>
+            <button class="category-button">Electronics</button>
+            <button class="category-button">Cars</button>
+            <button class="category-button">Fashion</button>
+            <button class="category-button">Art/Music</button>
+            <button class="category-button">Houses</button>
+            <button class="category-button">Health</button>
+            <button class="category-button">Home</button>
+        </div>
+    </section>
 {% endblock  %}
