@@ -16,8 +16,8 @@
         <nav class="container">
             <a href="/" style="text-align: left;" id="home"><h1>ProductOverdose</h1></a>
             <div id="searchbar">
-                <form action="{% url 'listings:list' %}">
-                    <input method="GET" type="text" name="search" placeholder="Search..." value="{{ request.GET.search }}">
+                <form action="{% url 'listings:list' %}" method="GET">
+                    <input type="text" name="search" placeholder="Search..." value="{{ request.GET.search|default_if_none:'' }}">
                     <button type="submit">Search</button>
                 </form>
             </div>

@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from .models import Listing
 from django.contrib.auth.decorators import login_required
 from . import forms
+from django.db.models import Q
 
 # Create your views here.
-def listings_list(request):
-    listings = Listing.objects.all().order_by('-date')
-    return render(request, 'listings/listings.html', {'listings': listings})
+# def listings_list(request):
+#     listings = Listing.objects.all().order_by('-date')
+#     return render(request, 'listings/listings.html', {'listings': listings})
 
 def listing_page(request, slug):
     listing = Listing.objects.get(slug=slug)
@@ -26,9 +27,12 @@ def listing_new(request):
         form = forms.CreateListing()
     return render(request, 'listings/listing_new.html', { 'form': form })
 
-def search_results(request):
-    query = request.GET.get('search')
-    results = Listing.objects.all()
-    if query:
-        results = results.filter(name__icontains=query)
+def list(request):
+    query = request.GET.get('search', '')
+    if query == '':
+        results = Listing.objects.all()
+    else:
+        results = Listing.objects.filter(
+            Q(title__icontains=query)
+            )
     return render(request, 'listings/listings.html', {'results': results, 'query': query})
