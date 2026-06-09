@@ -11,19 +11,26 @@
     {% for listing in listings %}
         <article class="listing">
             <h2>
-                <a href="{% url 'listings:page' slug=listing.slug %}">
-                    {{ listing.title }}
-                </a>
+                
             </h2>
             <p>{{ listing.date }} by {{ listing.author }}</p>
             <p>{{ listing.body }}</p>
         </article>
     {% endfor %}
     {% if results %}
-        <h1>Results for {{ query }}:</h1>
-        {% for result in results %}
-            <li>{{ result.title }}</li>
-        {% endfor %}
+        <div class="section-styling">
+            <h1>Results for {{ query }}:</h1>
+            <div class="item-cards">
+                {% for result in results %}
+                    <a href="{% url 'listings:page' slug=result.slug %}">
+                        <div class="item-card">
+                            <img class="banner" src="{{ result.banner.url }}" alt="{{ listing.title }}">
+                            <h1>{{ result.title }}</h1>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 </section>
 {% endblock %}

@@ -86,3 +86,30 @@ nav {
     width: 100%;
     /* max-width: 800px; */
 }
+
+.item-card {
+    width: 90%;
+    background-color: #D9D9D9;
+    margin-bottom: 15%;
+    border-radius: 15% 15% 30px 30px;
+    padding-bottom: 5%;
+    width: 300px;
+}
+
+.item-card img {
+    border-radius: 30px 30px 0 0;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+.item-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+}
+
+.section-styling {
+    background-color: #707070;
+    border-radius: 50px;
+}
