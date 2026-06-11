@@ -4,4 +4,4 @@ from . import models
 class CreateListing(forms.ModelForm):
     class Meta:
         model = models.Listing
-        fields = ['title', 'body', 'slug', 'banner']
+        fields = ['title', 'body', 'slug', 'banner', 'price']

@@ -113,3 +113,19 @@ nav {
     background-color: #707070;
     border-radius: 50px;
 }
+
+.section-text {
+    margin-left: 4%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.card-price {
+    text-decoration: none;
+    color: black;
+}

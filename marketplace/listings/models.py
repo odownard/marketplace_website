@@ -9,6 +9,7 @@ class Listing(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     banner = models.ImageField(default='lambo.webp', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    price = models.FloatField()
     
     def __str__(self):
         return self.title
