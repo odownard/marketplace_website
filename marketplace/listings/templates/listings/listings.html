@@ -22,13 +22,13 @@
             <h1 class="section-text">Results for {{ query }}:</h1>
             <div class="item-cards">
                 {% for result in results %}
-                    <div class="item-card">
-                        <a href="{% url 'listings:page' slug=result.slug %}">
+                    <a class="item-wrapper" href="{% url 'listings:page' slug=result.slug %}">
+                        <div class="item-card">
                             <img class="banner" src="{{ result.banner.url }}" alt="{{ listing.title }}">
-                            <h1 class"card-title">{{ result.title }}</h1>
-                            <h1 class"card-price">${{ result.price }}</h1>
-                        </a>
-                    </div>
+                            <h1 class="card-title">{{ result.title }}</h1>
+                            <h1 class="card-price">${{ result.price }}</h1>
+                        </div>
+                    </a>
                 {% endfor %}
             </div>
         </div>
