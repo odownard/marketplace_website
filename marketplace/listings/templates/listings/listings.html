@@ -25,8 +25,9 @@
                     <a class="item-wrapper" href="{% url 'listings:page' slug=result.slug %}">
                         <div class="item-card">
                             <img class="banner" src="{{ result.banner.url }}" alt="{{ listing.title }}">
-                            <h1 class="card-title">{{ result.title }}</h1>
+                            <h1 class="card-title" title="{{ result.title }}">{{ result.title }}</h1>
                             <h1 class="card-price">${{ result.price }}</h1>
+                            <h1 class="card-location">{{ result.location }}</h1>
                         </div>
                     </a>
                 {% endfor %}
