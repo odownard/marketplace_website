@@ -31,6 +31,19 @@ class Listing(models.Model):
     ]
 
     location = models.CharField(choices = LOCATION_CHOICES, null=True)
+
+    CATEGORY_CHOICES = [
+        ('Sports', 'Sports'),
+        ('Electronics', 'Electronics'),
+        ('Motors', 'Motors'),
+        ('Fashion', 'Fashion'),
+        ('Art/Music', 'Art/Music'),
+        ('Property', 'Property'),
+        ('Health', 'Health'),
+        ('Other', 'Other')
+    ]
+
+    category = models.CharField(choices = CATEGORY_CHOICES, null=True)
     
     def __str__(self):
         return self.title

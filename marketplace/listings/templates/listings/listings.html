@@ -26,7 +26,8 @@
                         <div class="item-card">
                             <img class="banner" src="{{ result.banner.url }}" alt="{{ listing.title }}">
                             <h1 class="card-title" title="{{ result.title }}">{{ result.title }}</h1>
-                            <h1 class="card-price">${{ result.price }}</h1>
+                            {% comment %} The floatformat thing rounds the decimal up - idk if we want this? {% endcomment %}
+                            <h1 class="card-price">${{ result.price|floatformat:"0" }}</h1> 
                             <h1 class="card-location">{{ result.location }}</h1>
                         </div>
                     </a>
