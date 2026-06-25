@@ -2,8 +2,8 @@ import django_filters
 from .models import Listing
 
 class ListingFilter(django_filters.FilterSet):
-    # #Title Search
-    # title_search = django_filters.CharFilter()
+    #Keyword Search
+    keyword_search = django_filters.CharFilter(field_name='title', lookup_expr='icontains')
 
     #Price Filters
     price__gte = django_filters.NumberFilter(field_name='price', lookup_expr='gte')

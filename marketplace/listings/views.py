@@ -29,20 +29,20 @@ def listing_new(request):
     return render(request, 'listings/listing_new.html', { 'form': form })
 
 def list(request):
-    # query = request.GET.get('search', '')
-    # if query == '':
-    #     results = Listing.objects.all()
-    # else:
-    #     results = Listing.objects.filter(
-    #         Q(title__icontains=query)
-    #         )
+    query = request.GET.get('search', '')
+    if query == '':
+        queryset = Listing.objects.all()
+    else:
+        queryset = Listing.objects.filter(
+            Q(title__icontains=query)
+            )
         
-    queryset = Listing.objects.all()
+    # queryset = Listing.objects.all()
     listing_filter = ListingFilter(request.GET, queryset=queryset)
 
     context = {
         # 'results': results,
-        # 'query': query,
+        'query': query,
         'filter': listing_filter,
         'results': listing_filter.qs
         # 'query': request.GET.get('category', 'All Categories')
