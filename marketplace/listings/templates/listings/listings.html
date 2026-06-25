@@ -5,18 +5,23 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-    <h1>Listings</h1>
-    
-    {% for listing in listings %}
-        <article class="listing">
-            <h2>
-                
-            </h2>
-            <p>{{ listing.date }} by {{ listing.author }}</p>
-            <p>{{ listing.body }}</p>
-        </article>
-    {% endfor %}
+    <div class="filter-options">
+        <form method="get">
+            <div class="filter">
+                <h1>Category</h1>
+                {{ filter.form.category }}
+            </div>
+            <div class="filter">
+                <h1>Price Range</h1>
+                {{ filter.form.price__gte }} to {{ filter.form.price__lte }}
+            </div>
+            <div class="filter">
+                <h1>Location</h1>
+                {{ filter.form.location }}
+            </div>
+            <button type="submit">Search</button>
+        </form>
+    </div>
     {% if results %}
         <div class="section-styling">
             <h1 class="section-text">Results for {{ query }}:</h1>
@@ -24,7 +29,7 @@
                 {% for result in results %}
                     <a class="item-wrapper" href="{% url 'listings:page' slug=result.slug %}">
                         <div class="item-card">
-                            <img class="banner" src="{{ result.banner.url }}" alt="{{ listing.title }}">
+                            <img class="banner" src="{{ result.banner.url }}" alt="{{ result.title }}">
                             <h1 class="card-title" title="{{ result.title }}">{{ result.title }}</h1>
                             {% comment %} The floatformat thing rounds the decimal up - idk if we want this? {% endcomment %}
                             <h1 class="card-price">${{ result.price|floatformat:"0" }}</h1> 
@@ -35,5 +40,4 @@
             </div>
         </div>
     {% endif %}
-</section>
 {% endblock %}

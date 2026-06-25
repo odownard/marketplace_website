@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'listings',
     'users',
-    'django-filters',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

@@ -30,7 +30,7 @@ class Listing(models.Model):
         ('Southland', 'Southland'),
     ]
 
-    location = models.CharField(choices = LOCATION_CHOICES, null=True)
+    location = models.CharField(max_length=25, choices = LOCATION_CHOICES, null=True)
 
     CATEGORY_CHOICES = [
         ('Sports', 'Sports'),
@@ -43,7 +43,7 @@ class Listing(models.Model):
         ('Other', 'Other')
     ]
 
-    category = models.CharField(choices = CATEGORY_CHOICES, null=True)
+    category = models.CharField(max_length=25, choices = CATEGORY_CHOICES, null=True)
     
     def __str__(self):
         return self.title

@@ -3,6 +3,7 @@ from .models import Listing
 from django.contrib.auth.decorators import login_required
 from . import forms
 from django.db.models import Q
+from .filters import ListingFilter
 
 # Create your views here.
 # def listings_list(request):
@@ -28,11 +29,22 @@ def listing_new(request):
     return render(request, 'listings/listing_new.html', { 'form': form })
 
 def list(request):
-    query = request.GET.get('search', '')
-    if query == '':
-        results = Listing.objects.all()
-    else:
-        results = Listing.objects.filter(
-            Q(title__icontains=query)
-            )
-    return render(request, 'listings/listings.html', {'results': results, 'query': query})
+    # query = request.GET.get('search', '')
+    # if query == '':
+    #     results = Listing.objects.all()
+    # else:
+    #     results = Listing.objects.filter(
+    #         Q(title__icontains=query)
+    #         )
+        
+    queryset = Listing.objects.all()
+    listing_filter = ListingFilter(request.GET, queryset=queryset)
+
+    context = {
+        # 'results': results,
+        # 'query': query,
+        'filter': listing_filter,
+        'results': listing_filter.qs
+        # 'query': request.GET.get('category', 'All Categories')
+    }
+    return render(request, 'listings/listings.html', context)
