@@ -37,14 +37,11 @@ def list(request):
             Q(title__icontains=query)
             )
         
-    # queryset = Listing.objects.all()
     listing_filter = ListingFilter(request.GET, queryset=queryset)
 
     context = {
-        # 'results': results,
         'query': query,
         'filter': listing_filter,
         'results': listing_filter.qs
-        # 'query': request.GET.get('category', 'All Categories')
     }
     return render(request, 'listings/listings.html', context)

@@ -3,7 +3,13 @@ from .models import Listing
 
 class ListingFilter(django_filters.FilterSet):
     #Keyword Search
-    keyword_search = django_filters.CharFilter(field_name='title', lookup_expr='icontains')
+    keyword_search = django_filters.CharFilter(
+        field_name='title', 
+        lookup_expr='icontains',
+        widget=django_filters.widgets.forms.TextInput(
+            attrs={'class': 'form-control rounded-pill', 'placeholder': 'Search Keywords'}
+        )
+    )
 
     #Price Filters
     price__gte = django_filters.NumberFilter(field_name='price', lookup_expr='gte')

@@ -7,23 +7,25 @@
 {% block content %}
     <div class="filter-options">
         <form method="get">
-            <div class="filter">
-                <h1>Category</h1>
-                {{ filter.form.category }}
+            <div id="buttons-category">
+                <div class="filter">
+                    <h1>Category</h1>
+                    {{ filter.form.category }}
+                </div>
+                <div class="filter">
+                    <h1>Price Range</h1>
+                    {{ filter.form.price__gte }} to {{ filter.form.price__lte }}
+                </div>
+                <div class="filter">
+                    <h1>Location</h1>
+                    {{ filter.form.location }}
+                </div>
+                <div class="filter">
+                    <h1>Search</h1>
+                    {{ filter.form.keyword_search }}
+                </div>
+                <button type="submit">Search</button>
             </div>
-            <div class="filter">
-                <h1>Price Range</h1>
-                {{ filter.form.price__gte }} to {{ filter.form.price__lte }}
-            </div>
-            <div class="filter">
-                <h1>Location</h1>
-                {{ filter.form.location }}
-            </div>
-            <div class="filter">
-                <h1>Search</h1>
-                {{ filter.form.keyword_search }}
-            </div>
-            <button type="submit">Search</button>
         </form>
     </div>
     {% if results %}
