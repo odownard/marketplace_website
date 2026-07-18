@@ -12,8 +12,20 @@ class ListingFilter(django_filters.FilterSet):
     )
 
     #Price Filters
-    price__gte = django_filters.NumberFilter(field_name='price', lookup_expr='gte')
-    price__lte = django_filters.NumberFilter(field_name='price', lookup_expr='lte')
+    price__gte = django_filters.NumberFilter(
+        field_name='price',
+        lookup_expr='gte',
+        widget=django_filters.widgets.forms.TextInput(
+            attrs={'class': 'form-control rounded-pill', 'placeholder': 'Price Min'}
+        )
+          )
+    price__lte = django_filters.NumberFilter(
+        field_name='price',
+        lookup_expr='lte',
+        widget=django_filters.widgets.forms.TextInput(
+            attrs={'class': 'form-control rounded-pill', 'placeholder': 'Price Max'}
+        )
+          )
 
     CATEGORY_CHOICES = [
         ('Sports', 'Sports'),

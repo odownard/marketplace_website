@@ -5,12 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-        <img class="banner" src="{{ listing.banner.url }}" alt="{{ listing.title }}">
+    <div class="section-styling">
+        <div class="banner">
+            <img class="banner" src="{{ listing.banner.url }}" alt="{{ listing.title }}">
+        </div>
         <h1>{{ listing.title }}</h1>
         <p>{{ listing.date }}</p>
         <p>{{ listing.body }}</p>
         <p>{{ listing.price }}</p>
         <p>{{ listing.location }}</p>
-    </section>
+    </div>
 {% endblock %}

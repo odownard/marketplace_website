@@ -167,3 +167,17 @@ nav {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+.banner {
+    width: 80%;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    /* padding-top: 20px; */
+    /* align-items: center; */
+}
+
+.banner img {
+    margin-top: 40px;
+}

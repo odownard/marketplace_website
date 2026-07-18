@@ -30,7 +30,7 @@
     </div>
     {% if results %}
         <div class="section-styling">
-            <h1 class="section-text">Results for {{ query }}:</h1>
+            <h1 class="section-text">Results:</h1>
             <div class="item-cards">
                 {% for result in results %}
                     <a class="item-wrapper" href="{% url 'listings:page' slug=result.slug %}">
@@ -44,6 +44,10 @@
                     </a>
                 {% endfor %}
             </div>
+        </div>
+    {% else %}
+        <div class="section-styling">
+            <h1 class="section-text">No results found.</h1>
         </div>
     {% endif %}
 {% endblock %}

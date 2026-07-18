@@ -30,18 +30,23 @@ def listing_new(request):
 
 def list(request):
     query = request.GET.get('search', '')
+    selected_category = request.GET.get('category', '')
+
     if query == '':
         queryset = Listing.objects.all()
     else:
         queryset = Listing.objects.filter(
             Q(title__icontains=query)
             )
-        
+    if selected_category:
+        queryset = queryset.filter(category=selected_category)
+
     listing_filter = ListingFilter(request.GET, queryset=queryset)
 
     context = {
         'query': query,
         'filter': listing_filter,
-        'results': listing_filter.qs
+        'results': listing_filter.qs,
+        'selected_category': selected_category,
     }
     return render(request, 'listings/listings.html', context)

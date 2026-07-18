@@ -1,10 +1,15 @@
 # from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from listings.models import Listing
+
 
 def homepage(request):
-#    return HttpResponse("Hello World! I'm Home.")
-    return render(request, 'home.html')
+    homepage_categories = Listing.CATEGORY_CHOICES
+    context = {
+        'categories': homepage_categories
+    }
+    return render(request, 'home.html', context)
 
 @login_required(login_url="/users/login/")
 def my_account(request):
