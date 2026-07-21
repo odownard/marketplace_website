@@ -110,6 +110,12 @@ nav {
     row-gap: 100px;
 }
 
+.listing-styling {
+    background-color: #707070;
+    border-radius: 50px;
+    padding: 6% 10%;
+}
+
 .section-styling {
     background-color: #707070;
     border-radius: 50px;
@@ -168,7 +174,8 @@ nav {
     margin-bottom: 20px;
 }
 
-.banner {
+/* .banner {
+    display: block;
     width: 80%;
     border-radius: 30px;
     margin-top: 20px;
@@ -176,8 +183,57 @@ nav {
     margin-right: 10%;
     /* padding-top: 20px; */
     /* align-items: center; */
+/* } */
+
+/* .banner img {
+    padding-top: 40px;
+} */
+
+.page_banner {
+    overflow: hidden;
+    border-radius: 40px;
 }
 
-.banner img {
-    margin-top: 40px;
+.page_banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.listing-details {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-top: 30px;
+}
+
+.listing-price {
+    background-color: #828282;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+    /* position: relative; */
+}
+
+.listing-price p {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.listing-body {
+    background-color: #828282;
+    border-radius: 20px;
+    text-align: left;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.user_authentication {
+    display: block;
+    place-items: center;
+    background-color: #707070;
+    border-radius: 50px;
+    margin-top: 20px;
+    padding: 20px;
 }

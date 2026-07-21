@@ -5,14 +5,23 @@
 {% endblock %}
 
 {% block content %}
-    <div class="section-styling">
-        <div class="banner">
-            <img class="banner" src="{{ listing.banner.url }}" alt="{{ listing.title }}">
+    <div class="listing-styling">
+        <div class="page_banner">
+            <img src="{{ listing.banner.url }}" alt="{{ listing.title }}">
         </div>
-        <h1>{{ listing.title }}</h1>
-        <p>{{ listing.date }}</p>
-        <p>{{ listing.body }}</p>
-        <p>{{ listing.price }}</p>
-        <p>{{ listing.location }}</p>
+        <div class="listing-details">
+            <div class="listing-title">
+                <h1>{{ listing.title }}</h1>
+                <p>{{ listing.location }}</p>
+            </div>
+            <div class="listing-price">
+                <h1>Asking Price:</h1>
+                <p>${{ listing.price }}</p>
+            </div>
+        </div>
+        <div class="listing-body">
+            <h1>Description:</h1>
+            <p>{{ listing.body }}</p>
+        </div>
     </div>
 {% endblock %}

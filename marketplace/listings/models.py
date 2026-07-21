@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Listing(models.Model):
     title = models.CharField(max_length=75)
     body = models.TextField()
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     date = models.DateTimeField(auto_now_add=True)
     banner = models.ImageField(default='lambo.webp', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
