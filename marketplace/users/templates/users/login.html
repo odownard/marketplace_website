@@ -6,14 +6,28 @@
 
 {% block content %}
     <div class="user_authentication">
-        <h1>Sign In</h1>
-        <form class="form-with-valdiation" action="/users/login/" method="post">
+        <h1 class="authentication_spacing">Sign In</h1>
+        <form class="authentication_spacing" action="/users/login/" method="post">
             {% csrf_token %}
             {{ form }}
+            <!-- 
+            {% for field in form %} 
+                <div class="field-title">
+                    {{ field.title }}
+                </div>
+                <div class="field-title">
+                    {{ field.title }}
+                </div>
+                <div class="field-input">
+                    {{ field }}
+                </div>
+            {% endfor %}
+            -->
             {% if request.GET.next %}
                 <input type="hidden" name="next" value="{{ request.GET.next }}" />
             {% endif %}    
             <button class="form_submit">Submit</button>
         </form>
+        <p class="authentication_spacing">Don't Have An Account? <a href="{% url 'users:register' %}">Create Account</a></p>
     </div>
 {% endblock %}
