@@ -5,7 +5,6 @@
 {% endblock  %}
 
 {% block content %}
-    <h1>Home</h1>
     <section id="categories-homepage">
         <h1>Categories</h1>
         <div id="buttons-category">
@@ -13,9 +12,39 @@
                 <a href="{% url 'listings:list' %}?category={{ category.0 }}">
                     <button class="category-button">{{ category.1 }}</button>
                 </a>
-            {% empty %}
-                <p>No categories found in view context.</p>
             {% endfor %}
         </div>
     </section>
+    <!-- <div class="section-styling">
+        <h1 class="section-text">Latest Listings</h1>
+        <div class="item-cards">
+            {% for listing in listings %}
+                <a class="item-wrapper" href="{% url 'listings:page' slug=listing.slug %}">
+                    <div class="item-card">
+                        <img class="banner" src="{{ listing.banner.url }}" alt="{{ listing.title }}">
+                        <h1 class="card-title" title="{{ listing.title }}">{{ listing.title }}</h1>
+                        <h1 class="card-price">${{ listing.price|floatformat:"0" }}</h1> 
+                        <h1 class="card-location">{{ listing.location }}</h1>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div> -->
+
+    
+        <div class="section-styling">
+            <h1 class="section-text">Latest Listings</h1>
+            <div class="item-cards">
+                {% for listing in listings %}
+                    <a class="item-wrapper" href="{% url 'listings:page' slug=listing.slug %}">
+                        <div class="item-card">
+                            <img class="banner" src="{{ listing.banner.url }}" alt="{{ listing.title }}">
+                            <h1 class="card-title" title="{{ listing.title }}">{{ listing.title }}</h1>
+                            <h1 class="card-price">${{ listing.price|floatformat:"0" }}</h1> 
+                            <h1 class="card-location">{{ listing.location }}</h1>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
 {% endblock  %}

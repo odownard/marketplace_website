@@ -6,8 +6,12 @@ from listings.models import Listing
 
 def homepage(request):
     homepage_categories = Listing.CATEGORY_CHOICES
+
+    homepage_listings = Listing.objects.all().order_by('-date')
+
     context = {
-        'categories': homepage_categories
+        'categories': homepage_categories,
+        'listings': homepage_listings
     }
     return render(request, 'home.html', context)
 
