@@ -33,13 +33,13 @@ def list(request):
     selected_category = request.GET.get('category', '')
 
     if query == '':
-        queryset = Listing.objects.all()
+        queryset = Listing.objects.all().order_by('-date')
     else:
         queryset = Listing.objects.filter(
             Q(title__icontains=query)
             )
     if selected_category:
-        queryset = queryset.filter(category=selected_category)
+        queryset = queryset.filter(category=selected_category).order_by('-date')
 
     listing_filter = ListingFilter(request.GET, queryset=queryset)
 
