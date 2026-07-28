@@ -1,11 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 # Create your models here.
 class Listing(models.Model):
     title = models.CharField(max_length=75)
     body = models.TextField()
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True)
+
+    #This function generates unique slugs based on listing titles
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
+            
+            while Listing.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
+            
+        super().save(*args, **kwargs)
+
     date = models.DateTimeField(auto_now_add=True)
     banner = models.ImageField(default='lambo.webp', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
