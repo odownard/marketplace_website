@@ -1,16 +1,42 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block title %}
     New Listing
 {% endblock %}
 
 {% block content %}
-    <section>
-        <h1>New Listing</h1>
-        <form class="form-with-validation" action="{% url 'listings:new-listing' %}" method="post" enctype="multipart/form-data">
+    <section class="section-styling">
+        <form action="{% url 'listings:new-listing' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form }}
-            <button class="form-submit">Create Listing</button>
+            <section class="form-section">
+                <div class="creation-details">
+                    <h1 class="creation-title">Create A Listing</h1>
+                    <label for="{{ form.title.id_for_label }}"></label>
+                    {{ form.title }}
+                    <label for="{{ form.category.id_for_label }}"></label>
+                    {{ form.category }}
+                    <label for="{{ form.location.id_for_label }}"></label>
+                    {{ form.location }}
+                    <label for="{{ form.body.id_for_label }}"></label>
+                    {{ form.body }}
+                    <label for="{{ form.price.id_for_label }}"></label>
+                    {{ form.price }}
+                </div>
+                <div class="creation-details">
+                    <h1 class="creation-title">Upload A File</h1>
+                    <label for="{{ form.banner.id_for_label }}">
+                        <div class="drop-box">
+                            <img src="{% static 'images/cloud-computing.png' %}" alt="upload icon" class="upload-icon">
+                            <div style="display: none;">
+                                {{ form.banner }}
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </section>
+            <div class="listing-submit"><button>Create Listing</button></div>
+            
         </form>
     </section>
 {% endblock %}

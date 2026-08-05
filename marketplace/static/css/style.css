@@ -269,3 +269,44 @@ nav {
     display: grid;
     grid-template-columns: 1fr auto;
 }
+
+.creation-details {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    gap: 20%;
+    justify-content: center;
+    margin-bottom: 80px;
+    padding-top: 40px;
+}
+
+.listing-submit {
+    text-align:center;
+}
+
+.listing-submit button {
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.creation-title {
+    margin-bottom: 20px;
+}
+
+.drop-box {
+    cursor: pointer;
+    background-color: #828282;
+    border-radius: 50px;
+}
+
+.upload-icon {
+    width:25%;
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
