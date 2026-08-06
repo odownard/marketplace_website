@@ -21,22 +21,22 @@
                     <button type="submit">Search</button>
                 </form>
             </div>
-            <a href="{% url 'listings:list' %}">Categories</a>
-            <a href="">Saved Listings</a>
+            <a href="{% url 'listings:list' %}"><img src="{% static 'images/list.png' %}" class="nav-icons" alt="listings" title="Listings"></a>
+            <a href=""><img src="{% static 'images/bookmark (1).png' %}" class="nav-icons" alt="saved-listings" title="Saved Listings"></a>
             <a href="{% url 'listings:new-listing' %}">
-                <span aria-label="New Listing" title="New Listing">New Listing</span>
+                <img src="{% static 'images/pencil (1).png' %}" class="nav-icons" alt="new-listing" title="New Listing">
             </a>
             {% if user.is_authenticated %}
-                <a href="/my_account">My Account</a>
+                <a href="/my_account"><img src="{% static 'images/user (2).png' %}" class="nav-icons" alt="Account Icon" title="My Account"></a>
             {% else %}
                 <div class="dropdown">
-                    <button class="dropbtn">My Account</button>
+                    <img src="{% static 'images/user (2).png' %}" class="nav-icons" alt="Account Icon">
                     <div class="dropdown-content">
                         <a href="{% url 'users:register' %}">
-                            <span aria-label="My Account" title="User Registration">User Registration</span>
+                            <span aria-label="My Account">User Registration</span>
                         </a>
                         <a href="{% url 'users:login' %}">
-                            <span aria-label="User Login" title="User Login">User Login</span>
+                            <span aria-label="User Login">User Login</span>
                         </a>
                     </div>
                 </div>
