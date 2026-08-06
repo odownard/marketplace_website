@@ -5,9 +5,32 @@
 {% endblock  %}
 
 {% block content %}
-    <h1>My Account</h1>
+    <h1>My Account - {{ request.user }}</h1>
     <form class="logout" action="{% url 'users:logout' %}" method="post">
         {% csrf_token %}
         <button class="logout-button" aria-label="User Logout" title="User Logout">Logout</button>
     </form>
+    <section>
+        {% if my_listings %}
+            <div class="section-styling">
+                <h1 class="section-text">My Listings</h1>
+                <div class="item-cards">
+                    {% for listing in my_listings %}
+                        <a class="item-wrapper" href="{% url 'listings:page' slug=listing.slug %}">
+                            <div class="item-card">
+                                <img class="banner" src="{{ listing.banner.url }}" alt="{{ listing.title }}">
+                                <h1 class="card-title" title="{{ listing.title }}">{{ listing.title }}</h1>
+                                <h1 class="card-price">${{ listing.price|floatformat:"0" }}</h1> 
+                                <h1 class="card-location">{{ listing.location }}</h1>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <div class="section-styling">
+                <h1 class="section-text">No listings found.</h1>
+            </div>
+        {% endif %}
+    </section>
 {% endblock  %}
