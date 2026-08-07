@@ -22,7 +22,7 @@
                 </form>
             </div>
             <a href="{% url 'listings:list' %}"><img src="{% static 'images/list.png' %}" class="nav-icons" alt="listings" title="Listings"></a>
-            <a href=""><img src="{% static 'images/bookmark (1).png' %}" class="nav-icons" alt="saved-listings" title="Saved Listings"></a>
+            <a href="{% url 'listings:watchlist' %}"><img src="{% static 'images/bookmark (1).png' %}" class="nav-icons" alt="saved-listings" title="Saved Listings"></a>
             <a href="{% url 'listings:new-listing' %}">
                 <img src="{% static 'images/pencil (1).png' %}" class="nav-icons" alt="new-listing" title="New Listing">
             </a>

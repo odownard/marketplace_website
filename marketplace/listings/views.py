@@ -50,3 +50,10 @@ def list(request):
         'selected_category': selected_category,
     }
     return render(request, 'listings/listings.html', context)
+
+def watchlist(request):
+
+    context = {
+        
+    }
+    return render(request, 'listings/watchlist.html', context)
